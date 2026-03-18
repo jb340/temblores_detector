@@ -21,17 +21,14 @@ class SensorScreen extends StatefulWidget {
 }
 
 class _SensorScreenState extends State<SensorScreen> {
-  // Variables para almacenar las coordenadas
   double _x = 0.0;
   double _y = 0.0;
 
-  // El StreamSubscription nos permite detener la escucha cuando cerremos la app
   StreamSubscription<AccelerometerEvent>? _subscription;
 
   @override
   void initState() {
     super.initState();
-    // Escuchamos los eventos del acelerómetro
     _subscription = accelerometerEvents.listen((AccelerometerEvent event) {
       setState(() {
         _x = event.x;
